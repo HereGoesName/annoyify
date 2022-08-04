@@ -1,5 +1,7 @@
 package io.namegoeshere.annoyify.models.helpers;
 
+import static org.bukkit.Bukkit.getLogger;
+
 import com.google.common.base.Charsets;
 import com.google.common.io.CharSink;
 import com.google.common.io.FileWriteMode;
@@ -27,10 +29,11 @@ public final class EnabledPlayerListFile {
      * @throws IOException Thrown in the event a file couldn't be created or read
      */
     public Set<String> loadFile() throws IOException {
-        playerListFile = FileManager.createFile("enabledPlayers");
+        String fileName = "enabledPlayers";
+        playerListFile = FileManager.createFile(fileName);
         Set<String> players = new HashSet<>(
             Files.readLines(playerListFile, Charset.defaultCharset()));
-        Bukkit.getLogger().info("[Annoyify] File [enabledPlayers] was successfully loaded.");
+        getLogger().info("[Annoyify] File [" + fileName + "] was successfully loaded.");
         return players.stream().filter(
             player -> !player.trim().isEmpty()).collect(Collectors.toSet());
     }

@@ -1,5 +1,7 @@
 package io.namegoeshere.annoyify.models;
 
+import static org.bukkit.Bukkit.getLogger;
+
 import io.namegoeshere.annoyify.util.CommandLogger;
 import java.io.IOException;
 import java.util.HashSet;
@@ -51,7 +53,7 @@ public final class EnabledPlayers {
                 CommandLogger.logCommandEvent(sender,
                     "Player [" + player.getName() + "] added to annoy list");
             } catch(IOException exception) {
-                Bukkit.getLogger().warning(
+                getLogger().warning(
                     "[Annoyify] Player ["
                         + player.getName()
                         + "] was unsuccessfully saved to the enabled player list file.");
@@ -64,7 +66,7 @@ public final class EnabledPlayers {
                 CommandLogger.logCommandEvent(sender,
                     "Player [" + player.getName() + "] removed from annoy list");
             } catch(IOException exception) {
-                Bukkit.getLogger().warning(
+                getLogger().warning(
                     "[Annoyify] Player ["
                         + player.getName()
                         + "] was unsuccessfully removed from the enabled player list file.");
@@ -93,7 +95,7 @@ public final class EnabledPlayers {
                         enabledPlayers.add(offlinePlayer);
                     }
                 } catch (IllegalArgumentException exception) {
-                    Bukkit.getLogger().info(
+                    getLogger().info(
                         "[Annoyify] Player [UUID: "
                             + player
                             + "] was unsuccessfully added to the enabled player list file.");

@@ -1,10 +1,11 @@
 package io.namegoeshere.annoyify.config;
 
+import static org.bukkit.Bukkit.getLogger;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.Objects;
 import java.util.concurrent.atomic.AtomicBoolean;
-import org.bukkit.Bukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 
@@ -132,7 +133,7 @@ public class ConfigurationHelper {
         });
 
         if(tidiedConfig.get()) {
-            Bukkit.getLogger().info("[Annoyify] Tidied up config");
+            getLogger().info("[Annoyify] Tidied up config");
         }
     }
 }

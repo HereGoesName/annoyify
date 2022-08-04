@@ -1,9 +1,10 @@
 package io.namegoeshere.annoyify.managers;
 
+import static org.bukkit.Bukkit.getLogger;
+
 import io.namegoeshere.annoyify.Main;
 import io.namegoeshere.annoyify.commands.AnnoyedCommand;
 import io.namegoeshere.annoyify.commands.AnnoyifyCommand;
-import org.bukkit.Bukkit;
 import org.bukkit.command.PluginCommand;
 
 public class CommandManager {
@@ -17,14 +18,14 @@ public class CommandManager {
         if (annoyifyCommand != null) {
             annoyifyCommand.setExecutor(new AnnoyifyCommand());
         } else {
-            Bukkit.getConsoleSender().sendMessage("\"annoyify\" command failed to initialise");
+            getLogger().warning("\"annoyify\" command failed to initialise");
         }
 
         PluginCommand annoyedCommand = main.getCommand("annoyed");
         if (annoyedCommand != null) {
             annoyedCommand.setExecutor(new AnnoyedCommand());
         } else {
-            Bukkit.getConsoleSender().sendMessage("\"annoyed\" command failed to initialise");
+            getLogger().warning("\"annoyed\" command failed to initialise");
         }
     }
 }

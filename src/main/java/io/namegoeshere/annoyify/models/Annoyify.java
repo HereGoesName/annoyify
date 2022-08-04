@@ -1,5 +1,7 @@
 package io.namegoeshere.annoyify.models;
 
+import static org.bukkit.Bukkit.getLogger;
+
 import io.namegoeshere.annoyify.models.helpers.EnabledPlayerListFile;
 import java.io.IOException;
 import lombok.Getter;
@@ -22,7 +24,7 @@ public final class Annoyify {
         try {
             enabledPlayers.addPlayers(enabledPlayerListFile.loadFile());
         } catch(IOException exception) {
-            Bukkit.getLogger().warning(
+            getLogger().warning(
                 "[Annoyify] Player file was unsuccessfully loaded.");
         }
     }
