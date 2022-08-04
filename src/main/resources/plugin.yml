@@ -1,0 +1,25 @@
+name: 'Annoyify'
+version: '0.1.0'
+main: io.namegoeshere.annoyify.Main
+api-version: '1.19'
+load: STARTUP
+prefix: Annoyify
+authors: [ HereGoesName ]
+website: www.namegoeshere.io
+description: A plugin that makes things very annoying for targeted players
+
+commands:
+  annoyify:
+    description: Toggle annoyances for a player
+    usage: /<command> playerName
+    aliases: annoy
+    permission: annoyify.*
+  annoyed:
+    description: Output list of targeted players
+    usage: /<command>
+    permission: annoyify.*
+
+permissions:
+  annoyify.*:
+    description: Access to all Annoyify commands
+    default: op
